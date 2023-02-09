@@ -1,39 +1,49 @@
 {
-  "name": "velotrack-online-graphics",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "serve": "tsc -w & vue-cli-service serve & NODE_ENV=dev nodemon dist/server/velotrack-online-graphics",
-    "build": "vue-cli-service build && tsc"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "src/appConfig/appConfig.json"
-    ],
-    "watch": [
-      "dist/**/*.js"
-    ],
-    "delay": 1000
-  },
-  "dependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.13.0",
-    "core-js": "^3.8.3",
-    "cors": "^2.8.5",
-    "papaparse": "^5.3.2",
-    "ts-node": "^10.9.1",
-    "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.13",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "nodemon": "^2.0.20",
-    "typescript": "~4.5.5"
-  }
+    "name": "velotrack-online-graphics",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "serve": "tsc -w & vue-cli-service serve & NODE_ENV=dev nodemon dist/server/velotrack-online-graphics",
+        "build": "vue-cli-service build && tsc",
+        "start": "node dist/server/velotrack-online-graphics"
+    },
+    "nodemonConfig": {
+        "ignore": [
+            "src/appConfig/appConfig.json"
+        ],
+        "watch": [
+            "dist/**/*.js"
+        ],
+        "delay": 1000
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "bulma": "^0.9.4",
+        "core-js": "^3.25.3",
+        "cors": "^2.8.5",
+        "csvtojson": "^2.0.10",
+        "express": "^4.18.1",
+        "form-data": "^4.0.0",
+        "notyf": "^3.10.0",
+        "papaparse": "^5.3.2",
+        "path": "^0.12.7",
+        "request": "^2.88.2",
+        "request-promise": "^4.2.6",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.4",
+        "vue": "^3.2.40",
+        "vue-router": "^4.1.5",
+        "ws": "^8.9.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.12",
+        "@types/express": "^4.17.14",
+        "@types/form-data": "^2.5.0",
+        "@types/node": "^18.7.23",
+        "@types/papaparse": "^5.3.7",
+        "@types/request-promise": "^4.1.48",
+        "@vue/cli-service": "~5.0.8",
+        "@vue/compiler-sfc": "^3.2.40",
+        "nodemon": "^2.0.20"
+    }
 }

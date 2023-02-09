@@ -1,9 +1,9 @@
 module.exports = {
-  pages: {
-    index: {
-      entry: 'src/client/src/main.js',
-      template: 'src/client/public/index.html'
-    }
-  },
-  outputDir: "dist/client"
+    pages: {
+        index: {
+            entry: 'src/client/src/main.js',
+            template: 'src/client/public/index.html'
+        }
+    },
+    outputDir: "dist/client"
 }

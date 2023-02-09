@@ -1,30 +1,35 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
 
+<script>
+// todo: read about vuex
+import '/node_modules/bulma/css/bulma.min.css';
+import Home from '@/client/src/views/Home';
+import Screen from '@/client/src/views/Screen';
+
+export default {
+  name: 'VeloGraphics',
+  components: {
+    Home, Screen
+  }
+};
+
+</script>
+
 <style>
-#app {
-  font-family: DecimaProA, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+.notyf__toast {
+  word-break: break-word;
 }
 
-nav {
-  padding: 30px;
+.notyf__toast--success {
+  background-color: #41c764;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+.notyf__toast--error {
+  background-color: #ee3e3d;
 }
 </style>
