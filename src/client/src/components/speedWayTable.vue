@@ -727,6 +727,7 @@ export default defineComponent({
 
 html {
   background-color: rgba(0, 0, 0, 0.50);
+  overflow-y: hidden;
 }
 
 body {

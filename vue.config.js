@@ -1,4 +1,5 @@
 module.exports = {
+    publicPath: './',
     pages: {
         index: {
             entry: 'src/client/src/main.js',

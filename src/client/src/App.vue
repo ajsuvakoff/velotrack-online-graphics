@@ -21,6 +21,16 @@ export default {
 
 <style>
 
+@font-face {
+  font-family: "DecimaProA";
+  src: url('@/client/public/assets/fonts/DecimaPro/Decima Pro A.otf');
+}
+
+@font-face {
+  font-family: "DecimaProA-BoldOblique";
+  src: url('@/client/public/assets/fonts/DecimaPro/Decima Pro A Bold Oblique.otf');
+}
+
 .notyf__toast {
   word-break: break-word;
 }
@@ -32,4 +42,6 @@ export default {
 .notyf__toast--error {
   background-color: #ee3e3d;
 }
+
+
 </style>

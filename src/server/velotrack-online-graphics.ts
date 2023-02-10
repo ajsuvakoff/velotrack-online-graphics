@@ -20,11 +20,6 @@ server.listen(port);
 server.on('error', err => serverOnError(err, port));
 server.on('listening', () => console.log(`app listening on port: ${port}`));
 
-// const logsDirectory = './logs';
-// if (!fs.existsSync(logsDirectory)) {
-//     fs.mkdirSync(logsDirectory);
-// }
-
 csvToJson().then()
 
 /** create ws server */
