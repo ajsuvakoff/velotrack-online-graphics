@@ -1,16 +1,18 @@
 <template>
-  <StartList/>
-  <FinalProtocol/>
+  <!--<StartList/>
+  <FinalProtocol/><!-->
+  <SpeedWayTable/>
 </template>
 
 
 <script>
 import StartList from "@/client/src/components/startList";
 import FinalProtocol from "@/client/src/components/finalProtocol";
+import SpeedWayTable from "@/client/src/components/speedWayTable.vue";
 
 export default {
   name: 'screen',
-  components: {StartList, FinalProtocol},
+  components: {SpeedWayTable, StartList, FinalProtocol},
   data() {
     return {};
 
