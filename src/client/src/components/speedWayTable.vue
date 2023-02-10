@@ -1,42 +1,40 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="screen">
     <div class="table">
       <table class="iksweb">
-        <tbody>
         <tr>
-          <th v-for="key in data.columns" style="text-align: center; min-width: 40px">{{ key.name }}</th>
+          <th v-for="key in data.columns" style="text-align: center; min-width: 45px; border: 5px solid #ffffff">{{ key.name }}</th>
         </tr>
-        <tr v-for="member in data.memberList">
-          <td>{{ member.number }}</td>
-          <td>{{ member.name }}</td>
-          <td>{{ member.city }}</td>
+        <tr v-for="member in data.memberList" :style="member.style">
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.number }}</td>
+          <td style="text-align: left; border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.name }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.city }}</td>
           <td :style="{backgroundColor:member.z1.color}">{{ member.z1.score }}</td>
           <td :style="{backgroundColor:member.z2.color}">{{ member.z2.score }}</td>
           <td :style="{backgroundColor:member.z3.color}">{{ member.z3.score }}</td>
           <td :style="{backgroundColor:member.z4.color}">{{ member.z4.score }}</td>
-          <td>{{ member.score1 }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score1 }}</td>
           <td :style="{backgroundColor:member.z5.color}">{{ member.z5.score }}</td>
           <td :style="{backgroundColor:member.z6.color}">{{ member.z6.score }}</td>
           <td :style="{backgroundColor:member.z7.color}">{{ member.z7.score }}</td>
           <td :style="{backgroundColor:member.z8.color}">{{ member.z8.score }}</td>
-          <td>{{ member.score2 }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score2 }}</td>
           <td :style="{backgroundColor:member.z9.color}">{{ member.z9.score }}</td>
           <td :style="{backgroundColor:member.z10.color}">{{ member.z10.score }}</td>
           <td :style="{backgroundColor:member.z11.color}">{{ member.z11.score }}</td>
           <td :style="{backgroundColor:member.z12.color}">{{ member.z12.score }}</td>
-          <td>{{ member.score3 }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score3 }}</td>
           <td :style="{backgroundColor:member.z13.color}">{{ member.z13.score }}</td>
           <td :style="{backgroundColor:member.z14.color}">{{ member.z14.score }}</td>
           <td :style="{backgroundColor:member.z15.color}">{{ member.z15.score }}</td>
           <td :style="{backgroundColor:member.z16.color}">{{ member.z16.score }}</td>
-          <td>{{ member.score4 }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score4 }}</td>
           <td :style="{backgroundColor:member.z17.color}">{{ member.z17.score }}</td>
           <td :style="{backgroundColor:member.z18.color}">{{ member.z18.score }}</td>
           <td :style="{backgroundColor:member.z19.color}">{{ member.z19.score }}</td>
           <td :style="{backgroundColor:member.z20.color}">{{ member.z20.score }}</td>
-          <td>{{ member.score }}</td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score }}</td>
         </tr>
-        </tbody>
       </table>
     </div>
   </div>
@@ -62,7 +60,7 @@ export default defineComponent({
         isVisible: true,
         columns: [
           //{name: 'номер', style: 'width:13%'},
-          {name: 'СТ№'},
+          {name: 'СТ.№'},
           {name: 'Фамилия, Имя спортсмена'},
           {name: 'Город'},
           {name: '1'},
@@ -96,22 +94,22 @@ export default defineComponent({
             number: '1',
             name: 'Богданов Никита',
             city: 'Уфа',
-            z1: {color: red, score: ''},
+            z1: {color: red, score: '1'},
             z2: {color: '', score: ''},
             z3: {color: '', score: ''},
             z4: {color: '', score: ''},
             score1: '',
-            z5: {color: blue, score: ''},
+            z5: {color: blue, score: '2'},
             z6: {color: '', score: ''},
             z7: {color: '', score: ''},
             z8: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: white, score: ''},
+            z9: {color: white, score: '3'},
+            z10: {color: '', score: ''},
             z11: {color: '', score: ''},
             z12: {color: '', score: ''},
             score3: '',
-            z13: {color: yellow, score: ''},
+            z13: {color: yellow, score: '4'},
             z14: {color: '', score: ''},
             z15: {color: '', score: ''},
             z16: {color: '', score: ''},
@@ -458,29 +456,211 @@ export default defineComponent({
             city: 'Тольятти',
             z1: {color: '', score: ''},
             z2: {color: '', score: ''},
-            z3: {color: yellow, score: ''},
-            z4: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: yellow, score: ''},
             score1: '',
-            z5: {color: '', score: ''},
+            z5: {color: red, score: ''},
             z6: {color: '', score: ''},
             z7: {color: '', score: ''},
-            z8: {color: white, score: ''},
+            z8: {color: '', score: ''},
             score2: '',
             z9: {color: '', score: ''},
-            z10: {color: red, score: ''},
+            z10: {color: '', score: ''},
             z11: {color: '', score: ''},
+            z12: {color: red, score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: blue, score: ''},
+            z15: {color: '', score: ''},
+            z16: {color: '', score: ''},
+            score4: '',
+            z17: {color: '', score: ''},
+            z18: {color: '', score: ''},
+            z19: {color: white, score: ''},
+            z20: {color: '', score: ''},
+            score: ''
+          },
+          {
+            number: '14',
+            name: 'Солянников Дмитрий',
+            city: 'Шадринск',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: blue, score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: red, score: ''},
+            z7: {color: '', score: ''},
+            z8: {color: '', score: ''},
+            score2: '',
+            z9: {color: '', score: ''},
+            z10: {color: '', score: ''},
+            z11: {color: yellow, score: ''},
             z12: {color: '', score: ''},
             score3: '',
-            z13: {color: blue, score: ''},
+            z13: {color: white, score: ''},
             z14: {color: '', score: ''},
             z15: {color: '', score: ''},
             z16: {color: '', score: ''},
             score4: '',
             z17: {color: '', score: ''},
             z18: {color: '', score: ''},
-            z19: {color: blue, score: ''},
+            z19: {color: '', score: ''},
+            z20: {color: blue, score: ''},
+            score: ''
+          },
+          {
+            number: '15',
+            name: 'Хужин Иван',
+            city: 'Тольятти',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: red, score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: '', score: ''},
+            z7: {color: blue, score: ''},
+            z8: {color: '', score: ''},
+            score2: '',
+            z9: {color: '', score: ''},
+            z10: {color: white, score: ''},
+            z11: {color: '', score: ''},
+            z12: {color: '', score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: '', score: ''},
+            z15: {color: '', score: ''},
+            z16: {color: yellow, score: ''},
+            score4: '',
+            z17: {color: white, score: ''},
+            z18: {color: '', score: ''},
+            z19: {color: '', score: ''},
             z20: {color: '', score: ''},
             score: ''
+          },
+          {
+            number: '16',
+            name: 'Хомицевич Дмитрий',
+            city: 'Каменск-Уральский',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: white, score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: '', score: ''},
+            z7: {color: '', score: ''},
+            z8: {color: yellow, score: ''},
+            score2: '',
+            z9: {color: blue, score: ''},
+            z10: {color: '', score: ''},
+            z11: {color: '', score: ''},
+            z12: {color: '', score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: '', score: ''},
+            z15: {color: red, score: ''},
+            z16: {color: '', score: ''},
+            score4: '',
+            z17: {color: '', score: ''},
+            z18: {color: yellow, score: ''},
+            z19: {color: '', score: ''},
+            z20: {color: '', score: ''},
+            score: ''
+          },
+          {
+            number: '17',
+            name: 'Буланкин Дмитрий',
+            city: 'Уфа',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: '', score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: '', score: ''},
+            z7: {color: '', score: ''},
+            z8: {color: '', score: ''},
+            score2: '',
+            z9: {color: '', score: ''},
+            z10: {color: '', score: ''},
+            z11: {color: '', score: ''},
+            z12: {color: '', score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: '', score: ''},
+            z15: {color: '', score: ''},
+            z16: {color: '', score: ''},
+            score4: '',
+            z17: {color: '', score: ''},
+            z18: {color: '', score: ''},
+            z19: {color: '', score: ''},
+            z20: {color: '', score: ''},
+            score: '',
+            style: {'border-top': '5px solid #ffffff'}
+          },
+          {
+            number: '18',
+            name: 'Тарасов Никита',
+            city: 'Уфа',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: '', score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: '', score: ''},
+            z7: {color: '', score: ''},
+            z8: {color: '', score: ''},
+            score2: '',
+            z9: {color: '', score: ''},
+            z10: {color: '', score: ''},
+            z11: {color: '', score: ''},
+            z12: {color: '', score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: '', score: ''},
+            z15: {color: '', score: ''},
+            z16: {color: '', score: ''},
+            score4: '',
+            z17: {color: '', score: ''},
+            z18: {color: '', score: ''},
+            z19: {color: '', score: ''},
+            z20: {color: '', score: ''},
+            score: ''
+          },
+          {
+            number: '19',
+            name: 'Володин Сергей',
+            city: 'Красногорск',
+            z1: {color: '', score: ''},
+            z2: {color: '', score: ''},
+            z3: {color: '', score: ''},
+            z4: {color: '', score: ''},
+            score1: '',
+            z5: {color: '', score: ''},
+            z6: {color: '', score: ''},
+            z7: {color: '', score: ''},
+            z8: {color: '', score: ''},
+            score2: '',
+            z9: {color: '', score: ''},
+            z10: {color: '', score: ''},
+            z11: {color: '', score: ''},
+            z12: {color: '', score: ''},
+            score3: '',
+            z13: {color: '', score: ''},
+            z14: {color: '', score: ''},
+            z15: {color: '', score: ''},
+            z16: {color: '', score: ''},
+            score4: '',
+            z17: {color: '', score: ''},
+            z18: {color: '', score: ''},
+            z19: {color: '', score: ''},
+            z20: {color: '', score: ''},
+            score: '',
+            style: {'border-bottom': '5px solid #ffffff'}
           }
         ]
       },
@@ -499,7 +679,12 @@ export default defineComponent({
         member.score4 = Number(member.z13.score) + Number(member.z14.score) + Number(member.z15.score) + Number(member.z16.score)
 
         member.score = member.score1 + member.score2 + member.score3 + member.score4
-        //return Number(this.data.memberList[member].z5) + Number(this.data.memberList[member].z6) + Number(this.data.memberList[member].z7) + Number(this.data.memberList[member].z8)
+
+        if (member.score1 === 0) member.score1 = ''
+        if (member.score2 === 0) member.score2 = ''
+        if (member.score3 === 0) member.score3 = ''
+        if (member.score4 === 0) member.score4 = ''
+        if (member.score === 0) member.score = ''
       })
     }, 500)
 
@@ -541,7 +726,7 @@ export default defineComponent({
 <style>
 
 html {
-
+  background-color: rgba(0, 0, 0, 0.50);
 }
 
 body {
@@ -580,8 +765,8 @@ body {
 
 .table {
   position: absolute;
-  left: 100px;
-  top: 180px;
+  left: 15px;
+  top: 80px;
   margin: 0;
   background-color: rgba(255, 255, 255, 0);
   font-family: DecimaProA, sans-serif;
@@ -604,7 +789,7 @@ table.iksweb th {
 }
 
 table.iksweb td {
-  font-size: 30px;
+  font-size: 26px;
   color: #ffffff;
 }
 
@@ -614,7 +799,7 @@ table.iksweb tr {
 
 table.iksweb td, table.iksweb th {
   white-space: pre-wrap;
-  padding: 12px 10px;
+  padding: 11px 10px;
   line-height: 19px;
   vertical-align: middle;
   border: 2px solid #ffffff;

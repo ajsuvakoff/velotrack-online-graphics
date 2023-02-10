@@ -37,8 +37,8 @@ export const broadcastWS = (msg: {}) => webSocketServer.clients.forEach(client =
 
 process.on('beforeExit', (code: number) => console.log(`app stopped with code: ${code}`));
 
-setInterval(() => {
-    csvToJson().then(() => {
-        startListGetData().then(() => broadcastWS(allTitles))
-    }).catch(err => console.log(err))
-}, 500)
+// setInterval(() => {
+//     csvToJson().then(() => {
+//         startListGetData().then(() => broadcastWS(allTitles))
+//     }).catch(err => console.log(err))
+// }, 500)
