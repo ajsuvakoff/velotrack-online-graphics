@@ -9,11 +9,12 @@
 import '/node_modules/bulma/css/bulma.min.css';
 import Home from '@/client/src/views/Home';
 import Screen from '@/client/src/views/Screen';
+import DiffOfTwo from '@/client/src/views/DiffOfTwo.vue';
 
 export default {
   name: 'VeloGraphics',
   components: {
-    Home, Screen
+    Home, Screen, DiffOfTwo
   }
 };
 

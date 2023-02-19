@@ -1,4 +1,3 @@
-import fs from "fs";
 import {getDataFromCell} from "../helpers/getDataFromCell";
 import {dataForTitle, data, readData} from "./dataForTitles";
 export function startListGetData() {

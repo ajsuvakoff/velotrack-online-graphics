@@ -1,8 +1,5 @@
 import fs from "fs";
-import {getDataFromCell} from "../helpers/getDataFromCell";
-
 export let data
-
 export let dataForTitle = {
     isVisible: true,
     page: 1,
@@ -52,7 +49,6 @@ export function readData() {
         try {
             data = JSON.parse(jsonData)
         } catch (err) {
-            console.log(err)
         }
     })
 }

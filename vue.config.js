@@ -6,6 +6,5 @@ module.exports = {
             template: 'src/client/public/index.html'
         }
     },
-
     outputDir: "dist/client"
 }

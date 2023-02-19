@@ -2,10 +2,9 @@ import {expressServer} from './server/expressServer';
 import {createServer} from 'http';
 import {serverOnError} from './server/serverOnError';
 import {Server} from 'ws';
-import fs from 'fs';
 import {csvToJson} from "./api/csvToJson";
-import {allTitles, dataForFinalProtocol, dataForTitle} from "./api/dataForTitles";
-import {startListGetData} from "./api/getDataForStartList"
+import {allTitles} from "./api/dataForTitles";
+import {getAllData} from "./api/getAllData";
 
 /** port */
 const port = 80;
@@ -32,8 +31,9 @@ export const broadcastWS = (msg: {}) => webSocketServer.clients.forEach(client =
 
 process.on('beforeExit', (code: number) => console.log(`app stopped with code: ${code}`));
 
-// setInterval(() => {
-//     csvToJson().then(() => {
-//         startListGetData().then(() => broadcastWS(allTitles))
-//     }).catch(err => console.log(err))
-// }, 500)
+setInterval(() => {
+    csvToJson().then(() => {
+        getAllData().then(() => broadcastWS(allTitles))
+    }).catch(err => {
+    })
+}, 500)

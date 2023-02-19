@@ -17,7 +17,7 @@
             </th>
             <th>
               <div class="select">
-                <select v-model="pageSelect" @change="selectPage(pageSelect)">
+                <select v-model="pageSelectStart" @change="selectPage(pageSelectStart)">
                   <option value=1>1</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -34,7 +34,7 @@
             </th>
             <th>
               <div class="select">
-                <select v-model="pageSelect" @change="selectPage(pageSelect)">
+                <select v-model="pageSelectFinal" @change="selectPage(pageSelectFinal)">
                   <option value=1>1</option>
                   <option value=2>2</option>
                   <option value=3>3</option>
@@ -80,7 +80,8 @@ export default {
   components: {NavBar},
   data() {
     return {
-      pageSelect: '1',
+      pageSelectStart: '1',
+      pageSelectFinal: '1',
       description: ''
     };
 
@@ -113,7 +114,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 html {
   background-color: rgba(255, 255, 255, 0);

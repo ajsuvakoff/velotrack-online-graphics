@@ -3,52 +3,57 @@
     <div class="table">
       <table class="iksweb">
         <tr>
-          <th v-for="key in data.columns" style="text-align: center; min-width: 45px; border: 5px solid #ffffff">{{ key.name }}</th>
+          <th v-for="key in data.columns" style="text-align: center; min-width: 43px; border: 5px solid #ffffff">
+            {{ key.name }}
+          </th>
         </tr>
         <tr v-for="member in data.memberList" :style="member.style">
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.number }}</td>
-          <td style="text-align: left; border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.name }}</td>
+          <td style="text-align: left; border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{
+              member.name
+            }}
+          </td>
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.city }}</td>
-          <td :style="{backgroundColor:member.z1.color}">{{ member.z1.score }}</td>
-          <td :style="{backgroundColor:member.z2.color}">{{ member.z2.score }}</td>
-          <td :style="{backgroundColor:member.z3.color}">{{ member.z3.score }}</td>
-          <td :style="{backgroundColor:member.z4.color}">{{ member.z4.score }}</td>
+          <td style="border-right: 5px solid #ffffff">{{ member.score }}</td>
+          <td :style="{backgroundColor:member.z21.color}">{{ member.z21.score }}</td>
+          <td :style="{backgroundColor:member.z22.color}">{{ member.z22.score }}</td>
+          <td :style="{backgroundColor:member.z23.color}">{{ member.z23.score }}</td>
+          <td :style="{backgroundColor:member.z24.color}">{{ member.z24.score }}</td>
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score1 }}</td>
-          <td :style="{backgroundColor:member.z5.color}">{{ member.z5.score }}</td>
-          <td :style="{backgroundColor:member.z6.color}">{{ member.z6.score }}</td>
-          <td :style="{backgroundColor:member.z7.color}">{{ member.z7.score }}</td>
-          <td :style="{backgroundColor:member.z8.color}">{{ member.z8.score }}</td>
+          <td :style="{backgroundColor:member.z25.color}">{{ member.z25.score }}</td>
+          <td :style="{backgroundColor:member.z26.color}">{{ member.z26.score }}</td>
+          <td :style="{backgroundColor:member.z27.color}">{{ member.z27.score }}</td>
+          <td :style="{backgroundColor:member.z28.color}">{{ member.z28.score }}</td>
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score2 }}</td>
-          <td :style="{backgroundColor:member.z9.color}">{{ member.z9.score }}</td>
-          <td :style="{backgroundColor:member.z10.color}">{{ member.z10.score }}</td>
-          <td :style="{backgroundColor:member.z11.color}">{{ member.z11.score }}</td>
-          <td :style="{backgroundColor:member.z12.color}">{{ member.z12.score }}</td>
+          <td :style="{backgroundColor:member.z29.color}">{{ member.z29.score }}</td>
+          <td :style="{backgroundColor:member.z30.color}">{{ member.z30.score }}</td>
+          <td :style="{backgroundColor:member.z31.color}">{{ member.z31.score }}</td>
+          <td :style="{backgroundColor:member.z32.color}">{{ member.z32.score }}</td>
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score3 }}</td>
-          <td :style="{backgroundColor:member.z13.color}">{{ member.z13.score }}</td>
-          <td :style="{backgroundColor:member.z14.color}">{{ member.z14.score }}</td>
-          <td :style="{backgroundColor:member.z15.color}">{{ member.z15.score }}</td>
-          <td :style="{backgroundColor:member.z16.color}">{{ member.z16.score }}</td>
+          <td :style="{backgroundColor:member.z33.color}">{{ member.z33.score }}</td>
+          <td :style="{backgroundColor:member.z34.color}">{{ member.z34.score }}</td>
+          <td :style="{backgroundColor:member.z35.color}">{{ member.z35.score }}</td>
+          <td :style="{backgroundColor:member.z36.color}">{{ member.z36.score }}</td>
           <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score4 }}</td>
-          <td :style="{backgroundColor:member.z17.color}">{{ member.z17.score }}</td>
-          <td :style="{backgroundColor:member.z18.color}">{{ member.z18.score }}</td>
-          <td :style="{backgroundColor:member.z19.color}">{{ member.z19.score }}</td>
-          <td :style="{backgroundColor:member.z20.color}">{{ member.z20.score }}</td>
-          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.score }}</td>
+          <td :style="{backgroundColor:member.z37.color}">{{ member.z37.score }}</td>
+          <td :style="{backgroundColor:member.z38.color}">{{ member.z38.score }}</td>
+          <td :style="{backgroundColor:member.z39.color}">{{ member.z39.score }}</td>
+          <td style="border-right: 5px solid #ffffff" :style="{backgroundColor:member.z40.color}">{{ member.z40.score }}
+          </td>
+          <td style="border-left: 5px solid #ffffff; border-right: 5px solid #ffffff">{{ member.scoreDayTwo }}</td>
         </tr>
       </table>
     </div>
   </div>
-
 </template>
 
 <script>
 import {defineComponent} from 'vue';
-import {apiGet} from "@/client/src/api/api";
 
-let red = 'rgba(255,0,0,0.5)'
-let blue = 'rgba(0,196,255,0.5)'
-let yellow = 'rgba(255,251,0,0.5)'
-let white = 'rgba(255,255,255,0.5)'
+const red = 'rgba(255,0,0,0.5)'
+const blue = 'rgba(0,196,255,0.5)'
+const yellow = 'rgba(255,251,0,0.5)'
+const white = 'rgba(255,255,255,0.5)'
 
 export default defineComponent({
   name: 'SpeedWayTable',
@@ -63,662 +68,655 @@ export default defineComponent({
           {name: 'СТ.№'},
           {name: 'Фамилия, Имя спортсмена'},
           {name: 'Город'},
-          {name: '1'},
-          {name: '2'},
-          {name: '3'},
-          {name: '4'},
+          {name: '1 день'},
+          {name: '21'},
+          {name: '22'},
+          {name: '23'},
+          {name: '24'},
           {name: 'Сумма'},
-          {name: '5'},
-          {name: '6'},
-          {name: '7'},
-          {name: '8'},
+          {name: '25'},
+          {name: '26'},
+          {name: '27'},
+          {name: '28'},
           {name: 'Сумма'},
-          {name: '9'},
-          {name: '10'},
-          {name: '11'},
-          {name: '12'},
+          {name: '29'},
+          {name: '30'},
+          {name: '31'},
+          {name: '32'},
           {name: 'Сумма'},
-          {name: '13'},
-          {name: '14'},
-          {name: '15'},
-          {name: '16'},
+          {name: '33'},
+          {name: '34'},
+          {name: '35'},
+          {name: '36'},
           {name: 'Сумма'},
-          {name: '17'},
-          {name: '18'},
-          {name: '19'},
-          {name: '20'},
-          {name: 'Сумма очков'},
+          {name: '37'},
+          {name: '38'},
+          {name: '39'},
+          {name: '40'},
+          {name: '2 день'},
         ],
         memberList: [
           {
             number: '1',
             name: 'Богданов Никита',
             city: 'Уфа',
-            z1: {color: red, score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: blue, score: '3'},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: blue, score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: red, score: '3'},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: white, score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: yellow, score: '3'},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: yellow, score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: white, score: '3'},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: red, score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: white, score: '3'},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 15,
+            scoreDayTwo: ''
           },
           {
             number: '2',
             name: 'Волков Матвей',
             city: 'Шадринск',
-            z1: {color: blue, score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: red, score: '0'},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: white, score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: blue, score: '1'},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: yellow, score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: yellow, score: '1'},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: red, score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: white, score: '1'},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: blue, score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: white, score: '2'},
+            score: 7,
+            scoreDayTwo: ''
           },
           {
             number: '3',
             name: 'Несытых Василий',
             city: 'Уфа',
-            z1: {color: white, score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: red, score: '3'},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: yellow, score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: blue, score: '3'},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: white, score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: white, score: '1'},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: blue, score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: red, score: '1'},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: red, score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: yellow, score: 'Д'},
+            score: 8,
+            scoreDayTwo: ''
           },
           {
             number: '4',
             name: 'Свитек Симон',
             city: 'Тольятти',
-            z1: {color: yellow, score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: red, score: '0'},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: red, score: ''},
+            z25: {color: white, score: '1'},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: blue, score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: blue, score: '1'},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: white, score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: yellow, score: '0'},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: yellow, score: ''},
-            score: ''
+            z37: {color: red, score: '0'},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 0,
+            scoreDayTwo: ''
           },
           {
             number: '5',
             name: 'Валеев Динар',
             city: 'Уфа',
-            z1: {color: '', score: ''},
-            z2: {color: red, score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: red, score: '2'},
             score1: '',
-            z5: {color: white, score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: blue, score: '2'},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: blue, score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: white, score: '3'},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: yellow, score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: yellow, score: '1'},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: red, score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: blue, score: '3'},
+            score: 14,
+            scoreDayTwo: ''
           },
           {
             number: '6',
             name: 'Большаков Иван',
             city: 'Каменск-Уральский',
-            z1: {color: '', score: ''},
-            z2: {color: white, score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: blue, score: '0'},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: yellow, score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: white, score: '0'},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: red, score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: yellow, score: '0'},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: blue, score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: red, score: '1'},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: yellow, score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: white, score: '1'},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 3,
+            scoreDayTwo: ''
           },
           {
             number: '7',
             name: 'Кононов Игорь',
             city: 'Тольятти',
-            z1: {color: '', score: ''},
-            z2: {color: blue, score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: blue, score: '3'},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: white, score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: red, score: '3'},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: yellow, score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: yellow, score: '2'},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: red, score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: white, score: '2'},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: white, score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: blue, score: '2'},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 11,
+            scoreDayTwo: ''
           },
           {
             number: '8',
             name: 'Бурмистров Артем',
             city: 'Шадринск',
-            z1: {color: '', score: ''},
-            z2: {color: yellow, score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: white, score: '1'},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: blue, score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: yellow, score: '0'},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: red, score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: red, score: '1'},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: white, score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: blue, score: '2'},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: blue, score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: red, score: '1'},
+            z40: {color: '', score: ''},
+            score: 2
           },
           {
             number: '9',
             name: 'Макаров Сергей ',
             city: 'Луховицы',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: white, score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: yellow, score: '1'},
             score1: '',
-            z5: {color: yellow, score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: red, score: 'Д'},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: blue, score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: white, score: '0'},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: red, score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: blue, score: '2'},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: red, score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: white, score: '0'},
+            z40: {color: '', score: ''},
+            score: 5,
+            scoreDayTwo: ''
           },
           {
             number: '10',
             name: 'Фадеев Владимир',
             city: 'Каменск-Уральский',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: red, score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: yellow, score: '2'},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: blue, score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: red, score: '2'},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: white, score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: blue, score: '2'},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: white, score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: white, score: '0'},
             score4: '',
-            z17: {color: yellow, score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: yellow, score: '1'},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 7,
+            scoreDayTwo: ''
           },
           {
             number: '11',
             name: 'Сайдуллин Игорь',
             city: 'Тольятти',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: blue, score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: white, score: '0'},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: red, score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: yellow, score: '1'},
             score2: '',
-            z9: {color: yellow, score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: blue, score: '0'},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: yellow, score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: red, score: '3'},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: white, score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: yellow, score: 'Д'},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 5,
+            scoreDayTwo: ''
           },
           {
             number: '12',
             name: 'Толокнов Никита',
             city: 'Тольятти',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: yellow, score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: blue, score: '2'},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: white, score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: white, score: '1'},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: red, score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: red, score: '3'},
             score3: '',
-            z13: {color: blue, score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: yellow, score: '0'},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: blue, score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: red, score: '2'},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 6,
+            scoreDayTwo: ''
           },
           {
             number: '13',
             name: 'Иванов Даниил',
             city: 'Тольятти',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: yellow, score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: yellow, score: '2'},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: red, score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: white, score: '3'},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: red, score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: red, score: '2'},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: blue, score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: blue, score: '3'},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: white, score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: blue, score: '3'},
+            z40: {color: '', score: ''},
+            score: 12,
+            scoreDayTwo: ''
           },
           {
             number: '14',
             name: 'Солянников Дмитрий',
             city: 'Шадринск',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: blue, score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: white, score: '1'},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: red, score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: yellow, score: '2'},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: yellow, score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: blue, score: '3'},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: white, score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: red, score: '2'},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: blue, score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: blue, score: '3'},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: 11,
+            scoreDayTwo: ''
           },
           {
             number: '15',
             name: 'Хужин Иван',
             city: 'Тольятти',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: red, score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: yellow, score: '1'},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: blue, score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: blue, score: '0'},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: white, score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: white, score: '0'},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: yellow, score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: yellow, score: '0'},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: white, score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: red, score: '1'},
+            score: 1,
+            scoreDayTwo: ''
           },
           {
             number: '16',
             name: 'Хомицевич Дмитрий',
             city: 'Каменск-Уральский',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: white, score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: white, score: '3'},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: yellow, score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: yellow, score: '2'},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: blue, score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: red, score: '2'},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: red, score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: blue, score: '3'},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: yellow, score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: yellow, score: '2'},
+            z40: {color: '', score: ''},
+            score: 12,
+            scoreDayTwo: ''
           },
           {
             number: '17',
             name: 'Буланкин Дмитрий',
             city: 'Уфа',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
             score: '',
+            scoreDayTwo: '',
             style: {'border-top': '5px solid #ffffff'}
           },
           {
             number: '18',
             name: 'Тарасов Никита',
             city: 'Уфа',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
-            score: ''
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
+            score: '',
+            scoreDayTwo: ''
           },
           {
             number: '19',
             name: 'Володин Сергей',
             city: 'Красногорск',
-            z1: {color: '', score: ''},
-            z2: {color: '', score: ''},
-            z3: {color: '', score: ''},
-            z4: {color: '', score: ''},
+            z21: {color: '', score: ''},
+            z22: {color: '', score: ''},
+            z23: {color: '', score: ''},
+            z24: {color: '', score: ''},
             score1: '',
-            z5: {color: '', score: ''},
-            z6: {color: '', score: ''},
-            z7: {color: '', score: ''},
-            z8: {color: '', score: ''},
+            z25: {color: '', score: ''},
+            z26: {color: '', score: ''},
+            z27: {color: '', score: ''},
+            z28: {color: '', score: ''},
             score2: '',
-            z9: {color: '', score: ''},
-            z10: {color: '', score: ''},
-            z11: {color: '', score: ''},
-            z12: {color: '', score: ''},
+            z29: {color: '', score: ''},
+            z30: {color: '', score: ''},
+            z31: {color: '', score: ''},
+            z32: {color: '', score: ''},
             score3: '',
-            z13: {color: '', score: ''},
-            z14: {color: '', score: ''},
-            z15: {color: '', score: ''},
-            z16: {color: '', score: ''},
+            z33: {color: '', score: ''},
+            z34: {color: '', score: ''},
+            z35: {color: '', score: ''},
+            z36: {color: '', score: ''},
             score4: '',
-            z17: {color: '', score: ''},
-            z18: {color: '', score: ''},
-            z19: {color: '', score: ''},
-            z20: {color: '', score: ''},
+            z37: {color: '', score: ''},
+            z38: {color: '', score: ''},
+            z39: {color: '', score: ''},
+            z40: {color: '', score: ''},
             score: '',
+            scoreDayTwo: '',
             style: {'border-bottom': '5px solid #ffffff'}
           }
         ]
       },
     };
   },
-  computed: {},
-  methods: {},
+  methods: {
+    isItNumber(data) {
+      if (data === 'СХ' || data === 'Д' || data === 'НС' || data === '0') {
+        return '0'
+      } else {
+        return data
+      }
+    },
+
+    calculate() {
+      this.data.memberList.forEach((member) => {
+
+        member.score1 = +(this.isItNumber(member.z21.score)) + +(this.isItNumber(member.z22.score)) + Number(this.isItNumber(member.z23.score)) + Number(this.isItNumber(member.z24.score))
+        member.score2 = +(this.isItNumber(member.score1)) + +(this.isItNumber(member.z25.score)) + +(this.isItNumber(member.z26.score)) + +(this.isItNumber(member.z27.score)) + +(this.isItNumber(member.z28.score))
+        member.score3 = +(this.isItNumber(member.score2)) + +(this.isItNumber(member.z29.score)) + +(this.isItNumber(member.z30.score)) + +(this.isItNumber(member.z31.score)) + +(this.isItNumber(member.z32.score))
+        member.score4 = +(this.isItNumber(member.score3)) + +(this.isItNumber(member.z33.score)) + +(this.isItNumber(member.z34.score)) + +(this.isItNumber(member.z35.score)) + +(this.isItNumber(member.z36.score))
+        member.scoreDayTwo = +(this.isItNumber(member.score4)) + +(this.isItNumber(member.z37.score)) + +(this.isItNumber(member.z38.score)) + +(this.isItNumber(member.z39.score)) + (this.isItNumber(member.z40.score))
+        //member.score = Number(this.isItNumber(member.score1) + Number(this.isItNumber(member.score2) + Number(this.isItNumber(member.score) + Number(this.isItNumber(member.score4)
+      })
+    }
+  },
 
   beforeMount() {
-
+    this.calculate()
     setInterval(() => {
-      this.data.memberList.forEach((member) => {
-        member.score1 = Number(member.z1.score) + Number(member.z2.score) + Number(member.z3.score) + Number(member.z4.score)
-        member.score2 = Number(member.z5.score) + Number(member.z6.score) + Number(member.z7.score) + Number(member.z8.score)
-        member.score3 = Number(member.z9.score) + Number(member.z10.score) + Number(member.z11.score) + Number(member.z12.score)
-        member.score4 = Number(member.z13.score) + Number(member.z14.score) + Number(member.z15.score) + Number(member.z16.score)
-
-        member.score = member.score1 + member.score2 + member.score3 + member.score4
-
-        if (member.score1 === 0) member.score1 = ''
-        if (member.score2 === 0) member.score2 = ''
-        if (member.score3 === 0) member.score3 = ''
-        if (member.score4 === 0) member.score4 = ''
-        if (member.score === 0) member.score = ''
-      })
+      this.calculate()
     }, 500)
-
-
-    // if (this.data.memberList.list1.length <= 0) {
-    //   this.data = JSON.parse(localStorage.getItem('data')).dataForTitle
-    // }
-    this.pictureStatic = localStorage.getItem('picture')
-
-    // WS.onmessage = event => {
-    //   console.log('ставлю дату')
-    //
-    //   console.log(event)
-    //   // this.data = event.data;
-    //   // localStorage.setItem('data', event.data)
-    //   // this.isVisible = JSON.parse(event.data.isVisible);
-    //
-    //   // if (data.type === 'activeJobs') {
-    //   //   this.uploadingFiles = data.data;
-    //   // }
-    // };
-
-
-    setInterval(() => {
-
-      //this.data = JSON.parse(localStorage.getItem('data')).dataForTitle
-
-      // apiGet('startList').then(response => {
-      //   this.data = response.data
-      //   this.isVisible = response.data.isVisible
-      //   localStorage.setItem('data', JSON.stringify(response.data))
-      //   localStorage.setItem('picture', this.pictureStatic)
-      // })
-    }, 500);
   },
 });
 </script>
@@ -726,7 +724,7 @@ export default defineComponent({
 <style>
 
 html {
-  background-color: rgba(0, 0, 0, 0.50);
+  background-color: rgba(0, 0, 0, 0);
   overflow-y: hidden;
 }
 
@@ -742,6 +740,8 @@ body {
   height: 1080px;
   text-align: center;
   position: center;
+  display: flex;
+  align-items: center;
 }
 
 .image {
@@ -765,10 +765,9 @@ body {
 }
 
 .table {
-  position: absolute;
-  left: 15px;
-  top: 80px;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1800px;
+  vertical-align: middle;
   background-color: rgba(255, 255, 255, 0);
   font-family: DecimaProA, sans-serif;
   text-align: center;
@@ -790,7 +789,7 @@ table.iksweb th {
 }
 
 table.iksweb td {
-  font-size: 26px;
+  font-size: 22px;
   color: #ffffff;
 }
 
@@ -800,7 +799,7 @@ table.iksweb tr {
 
 table.iksweb td, table.iksweb th {
   white-space: pre-wrap;
-  padding: 11px 10px;
+  padding: 10px 8px;
   line-height: 19px;
   vertical-align: middle;
   border: 2px solid #ffffff;

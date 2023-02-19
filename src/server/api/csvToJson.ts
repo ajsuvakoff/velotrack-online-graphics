@@ -1,5 +1,5 @@
 let csv = require("csvtojson");
-import axios, {AxiosResponse} from "axios";
+import axios from "axios";
 import fs from "fs";
 import {startListGetData} from "./getDataForStartList";
 
@@ -11,13 +11,14 @@ export function downloadTable() {
                 axios({
                     url, method: 'GET'
                 }).then((response) => {
-                    fs.writeFile("data.csv", response.data, "utf-8", (err) => {
-                        if (err) console.log(err);
-                        else {
-                            resolve("Data downloaded")
-                        }
-                    });
-                }).catch(err => reject(err.code))
+                        fs.writeFile("data.csv", response.data, "utf-8", (err) => {
+                            if (err) {
+                            } else {
+                                resolve("Data downloaded")
+                            }
+                        });
+                    }
+                ).catch(err => reject(err.code))
             }
         }
     )
@@ -32,10 +33,12 @@ export function csvToJson() {
                 .fromFile('data.csv')
                 .then(function (jsonArrayObj: any[]) {
                     fs.writeFile("data.json", JSON.stringify(jsonArrayObj), "utf-8", (err) => {
-                        if (err) console.log(err);
-                        else {
+                        if (err) {
+                        } else {
                             resolve("Data converted")
-                            setTimeout(() => {startListGetData()}, 4000)
+                            setTimeout(() => {
+                                startListGetData()
+                            }, 4000)
 
                         }
                     });

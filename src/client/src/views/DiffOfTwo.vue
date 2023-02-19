@@ -1,16 +1,14 @@
 <template>
-  <StartList/>
-  <FinalProtocol/>
+  <DiffOfTwo/>
 </template>
 
 
 <script>
-import StartList from "@/client/src/components/startList";
-import FinalProtocol from "@/client/src/components/finalProtocol";
+import DiffOfTwo from "@/client/src/components/diffOfTwo.vue";
 
 export default {
   name: 'screen',
-  components: {StartList, FinalProtocol},
+  components: {DiffOfTwo},
   data() {
     return {};
 

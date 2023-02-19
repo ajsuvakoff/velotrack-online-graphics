@@ -32,7 +32,6 @@
 
 <script>
 import {defineComponent} from 'vue';
-import {apiGet} from "@/client/src/api/api";
 
 export default defineComponent({
   name: 'FinalProtocol',
@@ -68,7 +67,7 @@ export default defineComponent({
     updateLayout() {
       if (this.data.memberList[this.data.page].length === 2) {
         this.strictHide = true
-        this.pictureStatic = require("../../public/setka4.png")
+        this.pictureStatic = require("../../public/setka2.png")
       } else if (this.data.memberList[this.data.page].length === 4) {
         this.strictHide = true
         this.pictureStatic = require("../../public/setka4.png")
@@ -91,31 +90,11 @@ export default defineComponent({
     this.pictureStatic = localStorage.getItem('picture')
     this.updateLayout()
 
-    // WS.onmessage = event => {
-    //   console.log('ставлю дату')
-    //
-    //   console.log(event)
-    //   // this.data = event.data;
-    //   // localStorage.setItem('data', event.data)
-    //   // this.isVisible = JSON.parse(event.data.isVisible);
-    //
-    //   // if (data.type === 'activeJobs') {
-    //   //   this.uploadingFiles = data.data;
-    //   // }
-    // };
-
-
     setInterval(() => {
 
       this.data = JSON.parse(localStorage.getItem('data')).dataForFinalProtocol
       this.updateLayout()
 
-      // apiGet('startList').then(response => {
-      //   this.data = response.data
-      //   this.isVisible = response.data.isVisible
-      //   localStorage.setItem('data', JSON.stringify(response.data))
-      //   localStorage.setItem('picture', this.pictureStatic)
-      // })
     }, 500);
   },
 });
@@ -135,9 +114,14 @@ body {
   height: 1080px;
   text-align: center;
   position: center;
+  display: flex;
+  align-items: baseline;
 }
 
 .image {
+  margin: 0 auto;
+  margin-left: 6px;
+  position: absolute;
   z-index: -999;
 }
 
@@ -149,19 +133,14 @@ body {
 
 .header {
   color: white;
-  position: absolute;
-  left: 740px;
-  margin-top: -955px;
+  margin-top: 123px;
   font-size: 50px;
   text-align: center;
   font-family: DecimaProA-BoldOblique, sans-serif;
 }
 
 .table {
-  position: absolute;
-  left: 345px;
-  top: 180px;
-  margin: 0;
+  margin-top: 178px;
   width: 1219px;
   background-color: rgba(255, 255, 255, 0);
   font-family: DecimaProA, sans-serif;

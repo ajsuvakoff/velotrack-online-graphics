@@ -1,17 +1,23 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import Upload from '/src/client/src/views/Home.vue';
+import Home from '/src/client/src/views/Home.vue';
 import Screen from '@/client/src/views/Screen';
+import DiffOfTwo from '@/client/src/views/DiffOfTwo.vue';
 
 const routes = [
         {
             name: 'VeloGraphics',
             path: '/',
-            component: Upload
+            component: Home
         },
         {
             name: 'Screen',
             path: '/screen',
             component: Screen
+        },
+        {
+            name: 'DiffOfTwo',
+            path: '/diff',
+            component: DiffOfTwo
         }
     ],
     router = createRouter({
