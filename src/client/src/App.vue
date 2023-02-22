@@ -22,6 +22,10 @@ export default {
 
 <style>
 
+html {
+  background-color: rgba(162, 20, 20, 0);
+}
+
 @font-face {
   font-family: "DecimaProA";
   src: url('@/client/public/assets/fonts/DecimaPro/Decima Pro A.otf');

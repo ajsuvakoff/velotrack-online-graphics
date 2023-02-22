@@ -54,8 +54,4 @@ html {
   display: none;
 }
 
-.container {
-  padding: 20px 20px 20px 20px;
-}
-
 </style>

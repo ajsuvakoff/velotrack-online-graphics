@@ -1,61 +1,73 @@
 <template>
   <NavBar/>
-  <div class="container">
-    <div class="columns box">
-      <div class="column is-6">
-        <table class="table is-fullwidth">
-          <thead>
-          <td>Титр</td>
-          <td>Show/hide</td>
-          <td>Страница</td>
-          </thead>
-          <tfoot>
-          <tr>
-            <th>Стартовая таблица</th>
-            <th>
-              <button class="button is-danger" @click="visibleChange(1)">Тык</button>
-            </th>
-            <th>
-              <div class="select">
-                <select v-model="pageSelectStart" @change="selectPage(pageSelectStart)">
-                  <option value=1>1</option>
-                  <option value=2>2</option>
-                  <option value=3>3</option>
-                  <option value=4>4</option>
-                </select>
-              </div>
-            </th>
-          </tr>
-          <tr>
+  <div class="backgroundColor" :style="{backgroundColor: '#B9B9B9FF'}">
+    <div class="container">
+      <div class="columns box">
+        <div class="column is-6">
+          <table class="table is-fullwidth">
+            <thead>
+            <td>Титр</td>
+            <td>Show/hide</td>
+            <td>Страница</td>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>Стартовая таблица</th>
+              <th>
+                <button class="button is-danger" @click="visibleChange(1)">Тык</button>
+              </th>
+              <th>
+                <div class="select">
+                  <select v-model="pageSelectStart" @change="selectPage(1, pageSelectStart)">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                  </select>
+                </div>
+              </th>
+            </tr>
+            <tr>
 
-            <th>Итоговая таблица</th>
-            <th>
-              <button class="button is-danger" @click="visibleChange(2)">Тык</button>
-            </th>
-            <th>
-              <div class="select">
-                <select v-model="pageSelectFinal" @change="selectPage(pageSelectFinal)">
-                  <option value=1>1</option>
-                  <option value=2>2</option>
-                  <option value=3>3</option>
-                  <option value=4>4</option>
-                </select>
-              </div>
-            </th>
+              <th>Итоговая таблица</th>
+              <th>
+                <button class="button is-danger" @click="visibleChange(2)">Тык</button>
+              </th>
+              <th>
+                <div class="select">
+                  <select v-model="pageSelectFinal" @change="selectPage(2, pageSelectFinal)">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                  </select>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <input v-model="raceId" class="input is-danger" type="text" @input="diffSet(raceId)" placeholder="ID гонки">
+              </th>
+              <th>
+                <input v-model="racer1Id" class="input is-primary" type="text" @input="diffSet('', racer1Id)" placeholder="ID гонщика слева">
+              </th>
+              <th>
+                <input v-model="racer2Id" class="input is-primary" type="text" @input="diffSet('', '', racer2Id)" placeholder="ID гонщика справа">
+              </th>
 
-          </tr>
-          </tfoot>
-        </table>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="column is-6">
+        </div>
       </div>
-      <div class="column is-6">
+
+      <div class="columns is-centered">
+        <div class="column is-8">
+        </div>
       </div>
     </div>
-
-    <div class="columns is-centered">
-      <div class="column is-8">
-      </div>
-    </div>
-
   </div>
 </template>
 
@@ -76,27 +88,20 @@ const notyf = new Notyf({
 });
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {NavBar},
   data() {
     return {
       pageSelectStart: '1',
       pageSelectFinal: '1',
-      description: ''
+      raceId: '',
+      racer1Id: '',
+      racer2Id: ''
     };
 
   },
-  computed: {
-    // todo: implement
-    // nameShortener(name) {
-    //   if (name.length > 20) {
-    //     // укоротить + добавить 3 точки
-    //     return name;
-    //   } else {
-    //     return name;
-    //   }
-    // }
-  },
+  computed: {},
+
   methods: {
     saveToStorage(key, data) { // Сохранение в localStorage
       // todo: отдельный класс который гетает и сетает и вызывается везде где нужно
@@ -106,26 +111,32 @@ export default {
     visibleChange(title) {
       apiPost('showTitle', {'title': title})
     },
-    selectPage(pageId) {
-      apiPost('selectPage', {'pageId': pageId})
+    selectPage(title, pageId) {
+      apiPost('selectPage', {'title': title, 'pageId': pageId})
+    },
+
+    diffSet(raceId, racer1Id, racer2Id) {
+      apiPost('diffOfTwoSet', {'raceId': raceId, 'racer1Id': racer1Id, 'racer2Id': racer2Id})
     }
   }
 }
 
 </script>
 
-<style scoped>
+<style>
 
-html {
-  background-color: rgba(255, 255, 255, 0);
+.backgroundColor {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 30px;
 }
 
 [v-cloak] {
   display: none;
 }
 
-.container {
-  margin-top: 35px;
+th {
+  font-size: 20px;
 }
 
 </style>

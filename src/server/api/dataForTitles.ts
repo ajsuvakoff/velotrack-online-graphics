@@ -1,7 +1,7 @@
 import fs from "fs";
 export let data
 export let dataForTitle = {
-    isVisible: true,
+    isVisible: false,
     page: 1,
     columns: [
         {name: '', style: 'width:13%'},
@@ -26,12 +26,33 @@ export let dataForFinalProtocol = {
         {name: ''},
         {name: ''},
         {name: ''},
+        {name: ''},
         {name: ''}
     ],
     memberList: {
         1: [],
         2: [],
     }
+}
+
+
+export let diffOfTwoSetting = {
+    raceId: '6288',
+    racer1Id: '1066',
+    racer2Id: '1051'
+}
+
+export let dataForDiffOfTwo = {
+    isVisible: true,
+    memberList: [],
+    lastSplit1: 0,
+    lastSplit2: 0,
+    lastResult1: '',
+    lastResult2:'',
+    lastCheckpoint: 'Старт',
+    diff1: '',
+    diff2: '',
+    timer: 0
 }
 
 export function showTitle(title) {
@@ -41,7 +62,6 @@ export function showTitle(title) {
     if (title === 2) {
         dataForFinalProtocol.isVisible = !dataForFinalProtocol.isVisible
     }
-
 }
 
 export function readData() {
@@ -55,5 +75,6 @@ export function readData() {
 
 export let allTitles = {
     dataForTitle,
-    dataForFinalProtocol
+    dataForFinalProtocol,
+    dataForDiffOfTwo
 }

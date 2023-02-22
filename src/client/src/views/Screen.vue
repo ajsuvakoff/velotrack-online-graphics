@@ -1,16 +1,20 @@
 <template>
-  <StartList/>
-  <FinalProtocol/>
+  <div class="screen" :style="{backgroundColor: 'rgba(0,0,0,0)'}">
+    <StartList/>
+    <FinalProtocol/>
+    <!--  <SpeedWayTable/>-->
+  </div>
 </template>
 
 
 <script>
 import StartList from "@/client/src/components/startList";
 import FinalProtocol from "@/client/src/components/finalProtocol";
+import SpeedWayTable from "@/client/src/components/speedWayTable.vue";
 
 export default {
   name: 'screen',
-  components: {StartList, FinalProtocol},
+  components: {SpeedWayTable, StartList, FinalProtocol},
   data() {
     return {};
 
@@ -46,18 +50,17 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
 
-html {
-  overflow-y: hidden;
+.screen {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: DecimaProA, sans-serif;
 }
 
 [v-cloak] {
   display: none;
-}
-
-.container {
-  padding: 20px 20px 20px 20px;
 }
 
 </style>

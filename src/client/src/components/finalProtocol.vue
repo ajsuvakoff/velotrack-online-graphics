@@ -12,16 +12,16 @@
           <tbody>
           <tr>
             <th width="6%">#</th>
-            <th v-for="key in data.columns">{{ key.name }}</th>
+            <th v-for="key in data.columns">{{ columnNameHandler(key.name) }}</th>
           </tr>
           <tr v-for="member in data.memberList[data.page]">
-            <td v-if="member.number">{{ member.number }}</td>
-            <td v-if="member.id">{{ member.id }}</td>
-            <td v-if="member.name">{{ member.name }}</td>
-            <td v-if="member.team">{{ member.team }}</td>
-            <td v-if="member.speedAvg">{{ member.speedAvg }}</td>
-            <td v-if="member.time">{{ member.time }}</td>
-            <td v-if="member.score">{{ member.score }}</td>
+            <td>{{ member.number }}</td>
+            <td>{{ member.param1 }}</td>
+            <td>{{ member.param2 }}</td>
+            <td>{{ member.param3 }}</td>
+            <td>{{ member.param4 }}</td>
+            <td>{{ member.param5 }}</td>
+            <td>{{ member.param6 }}</td>
           </tr>
           </tbody>
         </table>
@@ -74,12 +74,21 @@ export default defineComponent({
       } else if (this.data.memberList[this.data.page].length === 6) {
         this.strictHide = true
         this.pictureStatic = require("../../public/setka6.png")
+      } else if (this.data.memberList[this.data.page].length === 8) {
+        this.strictHide = true
+        this.pictureStatic = require("../../public/setka8.png")
       } else if (this.data.memberList[this.data.page].length === 0) {
         this.strictHide = false
       } else {
         this.strictHide = true
         this.pictureStatic = require("../../public/setka10.png")
       }
+    },
+
+    columnNameHandler(name) {
+      if (name !== 'ФИО' && name !== 'ФИ')  {
+        return name.toLowerCase()
+      } else return name
     }
   },
 
@@ -95,19 +104,14 @@ export default defineComponent({
       this.data = JSON.parse(localStorage.getItem('data')).dataForFinalProtocol
       this.updateLayout()
 
-    }, 500);
-  },
-});
+    }, 300);
+  }
+  ,
+})
+;
 </script>
 
 <style scoped>
-
-body {
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-  font-family: DecimaProA, sans-serif;
-}
 
 .screen {
   width: 1920px;
@@ -142,7 +146,6 @@ body {
 .table {
   margin-top: 178px;
   width: 1219px;
-  background-color: rgba(255, 255, 255, 0);
   font-family: DecimaProA, sans-serif;
   text-align: center;
 }
@@ -159,7 +162,6 @@ table.iksweb th {
   font-weight: normal;
   font-size: 30px;
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0);
 }
 
 table.iksweb td {

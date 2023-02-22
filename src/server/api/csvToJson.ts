@@ -1,9 +1,8 @@
 let csv = require("csvtojson");
 import axios from "axios";
 import fs from "fs";
-import {startListGetData} from "./getDataForStartList";
 
-const url = 'https://docs.google.com/spreadsheets/u/0/d/1fxVA6Ujd1zzSq_al0caqv3SXHhOb8IYRcL2rKdi0Qxk/export?format=csv&id=1fxVA6Ujd1zzSq_al0caqv3SXHhOb8IYRcL2rKdi0Qxk&gid=2079613560'
+const url = 'https://docs.google.com/spreadsheets/u/1/d/1YUZ3xBYvflLVZy3QCL-sxgIVcOM7TXVrWV3WZbDWJKw/export?format=csv&id=1YUZ3xBYvflLVZy3QCL-sxgIVcOM7TXVrWV3WZbDWJKw&gid=1014114897'
 
 export function downloadTable() {
     return new Promise(function (resolve, reject) {
@@ -36,10 +35,6 @@ export function csvToJson() {
                         if (err) {
                         } else {
                             resolve("Data converted")
-                            setTimeout(() => {
-                                startListGetData()
-                            }, 4000)
-
                         }
                     });
                 })

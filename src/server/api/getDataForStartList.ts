@@ -1,5 +1,6 @@
 import {getDataFromCell} from "../helpers/getDataFromCell";
 import {dataForTitle, data, readData} from "./dataForTitles";
+
 export function startListGetData() {
     return new Promise(function (resolve, reject) {
 
@@ -12,58 +13,97 @@ export function startListGetData() {
 
         if (dataForTitle.memberList[1].length <= 0) {
             for (let i = 0; i < 10; i++) {
-                dataForTitle.memberList[1].push({number: i + 1, id: '', name: '', team: '', zaezd: '', start: ''})
-                dataForTitle.memberList[2].push({number: i + 11, id: '', name: '', team: '', zaezd: '', start: ''})
-                dataForTitle.memberList[3].push({number: i + 21, id: '', name: '', team: '', zaezd: '', start: ''})
-                dataForTitle.memberList[4].push({number: i + 31, id: '', name: '', team: '', zaezd: '', start: ''})
+                dataForTitle.memberList[1].push({
+                    number: i + 1,
+                    param1: '',
+                    param2: '',
+                    param3: '',
+                    param4: '',
+                    param5: ''
+                })
+                dataForTitle.memberList[2].push({
+                    number: i + 11,
+                    param1: '',
+                    param2: '',
+                    param3: '',
+                    param4: '',
+                    param5: ''
+                })
+                dataForTitle.memberList[3].push({
+                    number: i + 21,
+                    param1: '',
+                    param2: '',
+                    param3: '',
+                    param4: '',
+                    param5: ''
+                })
+                dataForTitle.memberList[4].push({
+                    number: i + 31,
+                    param1: '',
+                    param2: '',
+                    param3: '',
+                    param4: '',
+                    param5: ''
+                })
             }
         }
 
         for (let i = 0; i < 10; i++) {
 
-            dataForTitle.memberList[1][i].id = getDataFromCell(data,  2, 19 + i)
-            dataForTitle.memberList[1][i].name = getDataFromCell(data,3, 19 + i)
-            dataForTitle.memberList[1][i].team = getDataFromCell(data,4, 19 + i)
-            dataForTitle.memberList[1][i].zaezd = getDataFromCell(data,5, 19 + i)
-            dataForTitle.memberList[1][i].start = getDataFromCell(data,6, 19 + i)
+            dataForTitle.memberList[1][i].param1 = getDataFromCell(data, 1, 13 + i)
+            dataForTitle.memberList[1][i].param2 = getDataFromCell(data, 2, 13 + i)
+            dataForTitle.memberList[1][i].param3 = getDataFromCell(data, 3, 13 + i)
+            dataForTitle.memberList[1][i].param4 = getDataFromCell(data, 4, 13 + i)
+            dataForTitle.memberList[1][i].param5 = getDataFromCell(data, 5, 13 + i)
 
-            dataForTitle.memberList[2][i].id = getDataFromCell(data,2, 29 + i)
-            dataForTitle.memberList[2][i].name = getDataFromCell(data,3, 29 + i)
-            dataForTitle.memberList[2][i].team = getDataFromCell(data,4, 29 + i)
-            dataForTitle.memberList[2][i].zaezd = getDataFromCell(data,5, 29 + i)
-            dataForTitle.memberList[2][i].start = getDataFromCell(data,6, 29 + i)
+            dataForTitle.memberList[2][i].param1 = getDataFromCell(data, 1, 23 + i)
+            dataForTitle.memberList[2][i].param2 = getDataFromCell(data, 2, 23 + i)
+            dataForTitle.memberList[2][i].param3 = getDataFromCell(data, 3, 23 + i)
+            dataForTitle.memberList[2][i].param4 = getDataFromCell(data, 4, 23 + i)
+            dataForTitle.memberList[2][i].param5 = getDataFromCell(data, 5, 23 + i)
 
-            dataForTitle.memberList[3][i].id = getDataFromCell(data,2, 39 + i)
-            dataForTitle.memberList[3][i].name = getDataFromCell(data,3, 39 + i)
-            dataForTitle.memberList[3][i].team = getDataFromCell(data,4, 39 + i)
-            dataForTitle.memberList[3][i].zaezd = getDataFromCell(data,5, 39 + i)
-            dataForTitle.memberList[3][i].start = getDataFromCell(data,6, 39 + i)
+            dataForTitle.memberList[3][i].param1 = getDataFromCell(data, 1, 33 + i)
+            dataForTitle.memberList[3][i].param2 = getDataFromCell(data, 2, 33 + i)
+            dataForTitle.memberList[3][i].param3 = getDataFromCell(data, 3, 33 + i)
+            dataForTitle.memberList[3][i].param4 = getDataFromCell(data, 4, 33 + i)
+            dataForTitle.memberList[3][i].param5 = getDataFromCell(data, 5, 33 + i)
 
-            dataForTitle.memberList[4][i].id = getDataFromCell(data,2, 49 + i)
-            dataForTitle.memberList[4][i].name = getDataFromCell(data,3, 49 + i)
-            dataForTitle.memberList[4][i].team = getDataFromCell(data,4, 49 + i)
-            dataForTitle.memberList[4][i].zaezd = getDataFromCell(data,5, 49 + i)
-            dataForTitle.memberList[4][i].start = getDataFromCell(data,6, 49 + i)
+            dataForTitle.memberList[4][i].param1 = getDataFromCell(data, 1, 43 + i)
+            dataForTitle.memberList[4][i].param2 = getDataFromCell(data, 2, 43 + i)
+            dataForTitle.memberList[4][i].param3 = getDataFromCell(data, 3, 43 + i)
+            dataForTitle.memberList[4][i].param4 = getDataFromCell(data, 4, 43 + i)
+            dataForTitle.memberList[4][i].param5 = getDataFromCell(data, 5, 43 + i)
         }
 
         for (let i = 0; i < 4; i++) {
             let arrName = i + 1
             dataForTitle.memberList[arrName].forEach((item, index) => {
-                if (item.name === '') try {
+                if (item.param3 === '') try {
                     dataForTitle.memberList[arrName].splice(index, 10)
                 } catch {
                 }
             })
         }
 
-        try {
-            dataForTitle.columns[0].name = getDataFromCell(data,2, 18)
-            dataForTitle.columns[1].name = getDataFromCell(data,3, 18)
-            dataForTitle.columns[2].name = getDataFromCell(data,4, 18)
-            dataForTitle.columns[3].name = getDataFromCell(data,5, 18)
-            dataForTitle.columns[4].name = getDataFromCell(data,6, 18)
-        } catch {
+        for (let i = 0; i < 4; i++) {
+            dataForTitle.memberList[2].forEach((item, index) => {
+                item.number = dataForTitle.memberList[1].length + index + 1
+            })
+            dataForTitle.memberList[3].forEach((item, index) => {
+                item.number = dataForTitle.memberList[2].length + index + 1
+            })
+            dataForTitle.memberList[4].forEach((item, index) => {
+                item.number = dataForTitle.memberList[3].length + index + 1
+            })
+        }
+
+        for (let i = 0; i < 4; i++) { // получить названия столбцов
+            try {
+                dataForTitle.columns[i].name = getDataFromCell(data, i + 1, 12)
+            } catch {
+            }
         }
         resolve(dataForTitle)
     })
+
 }

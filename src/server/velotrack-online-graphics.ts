@@ -36,4 +36,4 @@ setInterval(() => {
         getAllData().then(() => broadcastWS(allTitles))
     }).catch(err => {
     })
-}, 500)
+}, 300)

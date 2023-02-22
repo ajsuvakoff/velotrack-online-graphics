@@ -724,15 +724,7 @@ export default defineComponent({
 <style>
 
 html {
-  background-color: rgba(0, 0, 0, 0);
   overflow-y: hidden;
-}
-
-body {
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-  font-family: DecimaProA, sans-serif;
 }
 
 .screen {
@@ -770,7 +762,6 @@ body {
   vertical-align: middle;
   background-color: rgba(255, 255, 255, 0);
   font-family: DecimaProA, sans-serif;
-  text-align: center;
 }
 
 /* Стили таблицы (IKSWEB) */
