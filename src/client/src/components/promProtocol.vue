@@ -5,7 +5,7 @@
         <img class="background" :src="pictureStatic">
       </div>
       <div class="header">
-        <h1>Стартовый протокол</h1>
+        <h1>Промежуточный протокол</h1>
       </div>
       <div class="table">
         <table class="iksweb">
@@ -21,6 +21,7 @@
             <td :style="style4">{{ member.param3 }}</td>
             <td :style="style5">{{ member.param4 }}</td>
             <td :style="style6">{{ member.param5 }}</td>
+            <td :style="style7">{{ member.param6 }}</td>
           </tr>
           </tbody>
         </table>
@@ -31,11 +32,11 @@
 
 <script>
 import {defineComponent} from 'vue';
-import {updateLayout} from '../methods/updateLayout.js';
-import {columnNameHandler} from '../methods/columnNameHandler.js';
+import {updateLayout} from "@/client/src/methods/updateLayout";
+import {columnNameHandler} from "@/client/src/methods/columnNameHandler";
 
 export default defineComponent({
-  name: 'StartList',
+  name: 'Prom',
   data() {
     return {
       pictureStatic: require("../../public/setka10.png"),
@@ -44,6 +45,7 @@ export default defineComponent({
         isVisible: false,
         page: 1,
         columns: [
+          {name: 'номер', style: 'width:13%'},
           {name: 'ФИ'},
           {name: 'команда'},
           {name: 'заезд'},
@@ -61,25 +63,31 @@ export default defineComponent({
       style3: '',
       style4: '',
       style5: '',
-      style6: ''
+      style6: '',
+      style7: ''
     };
   },
-  computed: {},
+  computed: {
+    // selectedPage () {
+    //   this.selectedPage = data.page
+    // }
+  },
   methods: {
     updateLayout,
     columnNameHandler
+
   },
 
   beforeMount() {
     if (this.data.memberList.list1.length <= 0) {
-      this.data = JSON.parse(localStorage.getItem('data')).dataForTitle
+      this.data = JSON.parse(localStorage.getItem('data')).dataForFinalProtocol
     }
     this.pictureStatic = localStorage.getItem('picture')
     this.updateLayout()
 
     setInterval(() => {
 
-      this.data = JSON.parse(localStorage.getItem('data')).dataForTitle
+      this.data = JSON.parse(localStorage.getItem('data')).dataForFinalProtocol
       this.updateLayout()
 
       this.style2 = this.data.columns[0].style
@@ -87,10 +95,13 @@ export default defineComponent({
       this.style4 = this.data.columns[2].style
       this.style5 = this.data.columns[3].style
       this.style6 = this.data.columns[4].style
+      this.style7 = this.data.columns[5].style
 
     }, 300);
-  },
-});
+  }
+  ,
+})
+;
 </script>
 
 <style scoped>
@@ -116,8 +127,10 @@ export default defineComponent({
   object-fit: cover;
 }
 
+
 .header {
   color: white;
+  margin-left: -60px;
   margin-top: 123px;
   font-size: 50px;
   text-align: center;
@@ -146,7 +159,7 @@ table.iksweb th {
 }
 
 table.iksweb td {
-  font-size: 40px;
+  font-size: 35px;
   color: #ffffff;
 }
 
@@ -168,6 +181,5 @@ table.iksweb td, table.iksweb th {
 .fade-leave-to {
   opacity: 0;
 }
-
 
 </style>

@@ -4,11 +4,11 @@ export let dataForTitle = {
     isVisible: false,
     page: 1,
     columns: [
-        {name: '', style: 'width:13%'},
-        {name: ''},
-        {name: ''},
-        {name: ''},
-        {name: ''}
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''}
     ],
     memberList: {
         1: [],
@@ -22,12 +22,12 @@ export let dataForFinalProtocol = {
     isVisible: false,
     page: 1,
     columns: [
-        {name: '', style: 'width:13%'},
-        {name: ''},
-        {name: ''},
-        {name: ''},
-        {name: ''},
-        {name: ''}
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''},
+        {name: '', style: ''}
     ],
     memberList: {
         1: [],
@@ -44,7 +44,8 @@ export let diffOfTwoSetting = {
 
 export let dataForDiffOfTwo = {
     isVisible: true,
-    memberList: [],
+    name1: '',
+    name2: '',
     lastSplit1: 0,
     lastSplit2: 0,
     lastResult1: '',

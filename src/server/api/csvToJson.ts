@@ -2,7 +2,7 @@ let csv = require("csvtojson");
 import axios from "axios";
 import fs from "fs";
 
-const url = 'https://docs.google.com/spreadsheets/u/1/d/1YUZ3xBYvflLVZy3QCL-sxgIVcOM7TXVrWV3WZbDWJKw/export?format=csv&id=1YUZ3xBYvflLVZy3QCL-sxgIVcOM7TXVrWV3WZbDWJKw&gid=1014114897'
+const url = 'https://docs.google.com/spreadsheets/u/1/d/1NFp9nlmd8631_pmDhEva3PXneSs4l_sZLNsAQDkff9A/export?format=csv&id=1NFp9nlmd8631_pmDhEva3PXneSs4l_sZLNsAQDkff9A&gid=1014114897'
 
 export function downloadTable() {
     return new Promise(function (resolve, reject) {

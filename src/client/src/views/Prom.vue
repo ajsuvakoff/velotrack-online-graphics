@@ -1,7 +1,7 @@
 <template>
   <div class="screen" :style="{backgroundColor: 'rgba(0,0,0,0)'}">
-    <StartList/>
-    <FinalProtocol/>
+<!--    <StartList/>-->
+    <Prom/>
     <!--  <SpeedWayTable/>-->
   </div>
 </template>
@@ -9,21 +9,17 @@
 
 <script>
 import StartList from "@/client/src/components/startList";
-import FinalProtocol from "@/client/src/components/finalProtocol";
+import Prom from "@/client/src/components/promProtocol.vue";
 import SpeedWayTable from "@/client/src/components/speedWayTable.vue";
 
 export default {
   name: 'screen',
-  components: {SpeedWayTable, StartList, FinalProtocol},
+  components: {Prom, SpeedWayTable, StartList},
   data() {
     return {};
-
   },
 
   methods: {
-    saveToStorage(key, data) { // Сохранение в localStorage
-      localStorage.setItem(`${key}`, data);
-    },
 
     WSconnect() {
       const WS = new WebSocket(`ws://${window.location.hostname}`);

@@ -1,6 +1,6 @@
 {
     "name": "velotrack-online-graphics",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "private": true,
     "scripts": {
         "serve": "tsc -w & vue-cli-service serve & NODE_ENV=dev nodemon dist/server/velotrack-online-graphics",

@@ -36,17 +36,5 @@ html {
   src: url('@/client/public/assets/fonts/DecimaPro/Decima Pro A Bold Oblique.otf');
 }
 
-.notyf__toast {
-  word-break: break-word;
-}
-
-.notyf__toast--success {
-  background-color: #41c764;
-}
-
-.notyf__toast--error {
-  background-color: #ee3e3d;
-}
-
 
 </style>

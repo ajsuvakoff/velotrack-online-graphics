@@ -75,17 +75,17 @@ export function startListGetData() {
             dataForTitle.memberList[4][i].param5 = getDataFromCell(data, 5, 43 + i)
         }
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) { // удаление пустых строк
             let arrName = i + 1
             dataForTitle.memberList[arrName].forEach((item, index) => {
-                if (item.param3 === '') try {
+                if (item.param2 === '') try {
                     dataForTitle.memberList[arrName].splice(index, 10)
                 } catch {
                 }
             })
         }
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 4; i++) { // нумерация страниц
             dataForTitle.memberList[2].forEach((item, index) => {
                 item.number = dataForTitle.memberList[1].length + index + 1
             })
@@ -97,9 +97,14 @@ export function startListGetData() {
             })
         }
 
-        for (let i = 0; i < 4; i++) { // получить названия столбцов
+        for (let i = 0; i < 5; i++) { // получить названия столбцов, отформатировать/скрыть
             try {
                 dataForTitle.columns[i].name = getDataFromCell(data, i + 1, 12)
+                if (dataForTitle.columns[i].name === 'ФИО' || dataForTitle.columns[i].name === 'ФИ') {
+                    dataForTitle.columns[i].style = 'text-align: left'
+                } else if (dataForTitle.columns[i].name === 'Время старта*' ) {
+                    dataForTitle.columns[i].style = 'display: none'
+                } else { dataForTitle.columns[i].style = '' }
             } catch {
             }
         }

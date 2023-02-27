@@ -3,7 +3,7 @@ import {csvToJson} from "../api/csvToJson";
 import {dataForDiffOfTwo, dataForFinalProtocol, dataForTitle, diffOfTwoSetting, showTitle} from "../api/dataForTitles";
 import {startListGetData} from "../api/getDataForStartList"
 import {finalProtocolGetData} from "../api/getDataForFinalProtocol";
-import {getTwoRacers} from "../api/getDataForDiffOfTwo";
+//import {getTwoRacers} from "../api/getDataForDiffOfTwo";
 
 export let apiRouter: Router = Router();
 
@@ -16,15 +16,15 @@ apiRouter.get('/getData', (req: Request, res: Response) => csvToJson().then(data
 apiRouter.get('/startList', (req: Request, res: Response) => startListGetData().then(data => res.send(data)).catch((err) => res.send(err)))
 apiRouter.get('/finalProtocol', (req: Request, res: Response) => finalProtocolGetData().then(data => res.send(data)).catch((err) => res.send(err)))
 
-apiRouter.post('/getTwoRacers', (req: Request, res: Response) => {
-
-    const raceId = req.body.raceId
-    const id1 = req.body.id1
-    const id2 = req.body.id2
-
-    getTwoRacers(raceId, id1, id2).then(data => res.send(data)).catch((err) => res.send(err))
-
-})
+// apiRouter.post('/getTwoRacers', (req: Request, res: Response) => {
+//
+//     const raceId = req.body.raceId
+//     const id1 = req.body.id1
+//     const id2 = req.body.id2
+//
+//     getTwoRacers(raceId, id1, id2).then(data => res.send(data)).catch((err) => res.send(err))
+//
+// })
 
 apiRouter.get('/setTimer', (req: Request, res: Response) => {
 

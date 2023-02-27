@@ -1,4 +1,4 @@
-# vk-video-uploader
+# velotrack-online-graphics
 
 ## Project setup
 
@@ -17,16 +17,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Пример пути для MacOS
-
-```
-//Volumes/Storage/VIDEO_STORAGE/Conference 2022/SUMMER/TechTrain 2022
-```
-
-### Пример пути для Windows
-
-```
-//nas001.localdomain/Storage/VIDEO_STORAGE/Conference 2022/SUMMER/TechTrain 2022
-```
-

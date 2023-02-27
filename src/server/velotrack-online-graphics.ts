@@ -23,13 +23,12 @@ csvToJson().then()
 
 /** create ws server */
 export const webSocketServer: Server = new Server({server});
-webSocketServer.on('connection', (ws: WebSocket) =>
-    ws.send(JSON.stringify(allTitles)))
+webSocketServer.on('connection', (ws: WebSocket) => {
+    getAllData().then(() => broadcastWS(allTitles))
+})
 
 /** create broadcast function */
 export const broadcastWS = (msg: {}) => webSocketServer.clients.forEach(client => client.send(JSON.stringify(msg)));
-
-process.on('beforeExit', (code: number) => console.log(`app stopped with code: ${code}`));
 
 setInterval(() => {
     csvToJson().then(() => {
@@ -37,3 +36,6 @@ setInterval(() => {
     }).catch(err => {
     })
 }, 300)
+
+process.on('beforeExit', (code: number) => console.log(`app stopped with code: ${code}`));
+

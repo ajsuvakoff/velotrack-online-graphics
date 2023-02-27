@@ -8,12 +8,12 @@
         <h1 class="timer">{{ substringClock(timers[0].clock) }}</h1>
         <h1 class="header">{{ data.lastCheckpoint }}</h1>
         <div ref="manLeft" class="manLeft">
-          <h1 v-bind:style="{fontSize: fontSizeLeft}">
-            {{ data.memberList[0].name }}</h1>
+          <h1>
+            {{ data.name1 }}</h1>
         </div>
         <div ref="manRight" class="manRight">
           <h1>
-            {{ data.memberList[1].name }}</h1>
+            {{ data.name2 }}</h1>
         </div>
 
         <table class="table iksweb">
@@ -75,11 +75,6 @@ export default defineComponent({
       ]
 
     };
-  },
-  computed: {
-    // selectedPage () {
-    //   this.selectedPage = data.page
-    // }
   },
   methods: {
     getData() {
@@ -155,7 +150,7 @@ export default defineComponent({
 
     setInterval(() => {
       if (this.data.timer === 0) {
-        this.stop(0)
+        this.reset(0)
       }
       if (this.data.timer === 1) {
         this.start(0)
@@ -183,7 +178,7 @@ export default defineComponent({
 <style scoped>
 
 .data {
-  margin-top: -68px;
+  margin-top: -72px;
   width: 1920px;
 }
 
@@ -193,16 +188,12 @@ export default defineComponent({
   z-index: -999;
 }
 
-.nameLeft {
-  width: fit-content;
-}
-
 .manLeft {
   color: white;
   position: absolute;
   margin-left: 546px;
-  margin-top: 915px;
-  font-size: 35px;
+  margin-top: 924px;
+  font-size: 25px;
   text-align: center;
   width: 320px;
 }
@@ -211,8 +202,8 @@ export default defineComponent({
   color: white;
   position: absolute;
   margin-left: 1071px;
-  margin-top: 915px;
-  font-size: 35px;
+  margin-top: 924px;
+  font-size: 25px;
   text-align: center;
   width: 320px;
 }
@@ -261,12 +252,12 @@ table.iksweb {
 
 table.iksweb th {
   font-weight: normal;
-  font-size: 30px;
+  font-size: 20px;
   color: #ffffff;
 }
 
 table.iksweb td {
-  font-size: 24px;
+  font-size: 20px;
   color: #ffffff;
 }
 

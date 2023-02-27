@@ -12,16 +12,16 @@
           <tbody>
           <tr>
             <th width="6%">#</th>
-            <th v-for="key in data.columns">{{ columnNameHandler(key.name) }}</th>
+            <th :style="key.style" v-for="key in data.columns">{{ columnNameHandler(key.name) }}</th>
           </tr>
           <tr v-for="member in data.memberList[data.page]">
-            <td>{{ member.number }}</td>
-            <td>{{ member.param1 }}</td>
-            <td>{{ member.param2 }}</td>
-            <td>{{ member.param3 }}</td>
-            <td>{{ member.param4 }}</td>
-            <td>{{ member.param5 }}</td>
-            <td>{{ member.param6 }}</td>
+            <td :style="style1">{{ member.number }}</td>
+            <td :style="style2">{{ member.param1 }}</td>
+            <td :style="style3">{{ member.param2 }}</td>
+            <td :style="style4">{{ member.param3 }}</td>
+            <td :style="style5">{{ member.param4 }}</td>
+            <td :style="style6">{{ member.param5 }}</td>
+            <td :style="style7">{{ member.param6 }}</td>
           </tr>
           </tbody>
         </table>
@@ -32,6 +32,8 @@
 
 <script>
 import {defineComponent} from 'vue';
+import {updateLayout} from "@/client/src/methods/updateLayout";
+import {columnNameHandler} from "@/client/src/methods/columnNameHandler";
 
 export default defineComponent({
   name: 'FinalProtocol',
@@ -56,6 +58,13 @@ export default defineComponent({
           list4: []
         }
       },
+      style1: '',
+      style2: '',
+      style3: '',
+      style4: '',
+      style5: '',
+      style6: '',
+      style7: ''
     };
   },
   computed: {
@@ -64,32 +73,8 @@ export default defineComponent({
     // }
   },
   methods: {
-    updateLayout() {
-      if (this.data.memberList[this.data.page].length === 2) {
-        this.strictHide = true
-        this.pictureStatic = require("../../public/setka2.png")
-      } else if (this.data.memberList[this.data.page].length === 4) {
-        this.strictHide = true
-        this.pictureStatic = require("../../public/setka4.png")
-      } else if (this.data.memberList[this.data.page].length === 6) {
-        this.strictHide = true
-        this.pictureStatic = require("../../public/setka6.png")
-      } else if (this.data.memberList[this.data.page].length === 8) {
-        this.strictHide = true
-        this.pictureStatic = require("../../public/setka8.png")
-      } else if (this.data.memberList[this.data.page].length === 0) {
-        this.strictHide = false
-      } else {
-        this.strictHide = true
-        this.pictureStatic = require("../../public/setka10.png")
-      }
-    },
-
-    columnNameHandler(name) {
-      if (name !== 'ФИО' && name !== 'ФИ')  {
-        return name.toLowerCase()
-      } else return name
-    }
+    updateLayout,
+    columnNameHandler
   },
 
   beforeMount() {
@@ -103,6 +88,12 @@ export default defineComponent({
 
       this.data = JSON.parse(localStorage.getItem('data')).dataForFinalProtocol
       this.updateLayout()
+
+      this.style2 = this.data.columns[0].style
+      this.style3 = this.data.columns[1].style
+      this.style4 = this.data.columns[2].style
+      this.style5 = this.data.columns[3].style
+      this.style6 = this.data.columns[4].style
 
     }, 300);
   }
@@ -137,6 +128,7 @@ export default defineComponent({
 
 .header {
   color: white;
+  margin-left: 30px;
   margin-top: 123px;
   font-size: 50px;
   text-align: center;
@@ -144,7 +136,7 @@ export default defineComponent({
 }
 
 .table {
-  margin-top: 178px;
+  margin-top: 175px;
   width: 1219px;
   font-family: DecimaProA, sans-serif;
   text-align: center;
@@ -165,14 +157,14 @@ table.iksweb th {
 }
 
 table.iksweb td {
-  font-size: 40px;
+  font-size: 35px;
   color: #ffffff;
 }
 
 table.iksweb td, table.iksweb th {
   white-space: pre-wrap;
-  padding: 28.5px 5px;
-  line-height: 19px;
+  padding: 0 5px;
+  line-height: 76px;
   vertical-align: middle;
   border: 0 solid #000000;
   text-align: center;

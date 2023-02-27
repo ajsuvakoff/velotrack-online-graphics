@@ -12,7 +12,7 @@
             </thead>
             <tfoot>
             <tr>
-              <th>Стартовая таблица</th>
+              <th>Стартовый протокол</th>
               <th>
                 <button class="button is-danger" @click="visibleChange(1)">Тык</button>
               </th>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
 
-              <th>Итоговая таблица</th>
+              <th>Итоговый протокол</th>
               <th>
                 <button class="button is-danger" @click="visibleChange(2)">Тык</button>
               </th>
@@ -43,18 +43,6 @@
                   </select>
                 </div>
               </th>
-            </tr>
-            <tr>
-              <th>
-                <input v-model="raceId" class="input is-danger" type="text" @input="diffSet(raceId)" placeholder="ID гонки">
-              </th>
-              <th>
-                <input v-model="racer1Id" class="input is-primary" type="text" @input="diffSet('', racer1Id)" placeholder="ID гонщика слева">
-              </th>
-              <th>
-                <input v-model="racer2Id" class="input is-primary" type="text" @input="diffSet('', '', racer2Id)" placeholder="ID гонщика справа">
-              </th>
-
             </tr>
             </tfoot>
           </table>
@@ -77,16 +65,6 @@ import NavBar from '@/client/src/components/navBar';
 import {Notyf} from 'notyf';
 import 'notyf/notyf.min.css';
 import {apiGet, apiPost} from '@/client/src/api/api';
-
-const notyf = new Notyf({
-  duration: 0,
-  dismissible: true,
-  position: {
-    x: 'right',
-    y: 'top'
-  }
-});
-
 export default {
   name: 'Home',
   components: {NavBar},

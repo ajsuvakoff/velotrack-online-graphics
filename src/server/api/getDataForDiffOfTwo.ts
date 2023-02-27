@@ -1,85 +1,86 @@
 import axios from "axios";
-import {dataForDiffOfTwo} from "./dataForTitles";
-import fs from "fs";
+import {data, dataForDiffOfTwo} from "./dataForTitles";
+import {getDataFromCell} from "../helpers/getDataFromCell";
+
 export let dataFromJson
 
-function getRacers(raceId) {
+// function getRacers(raceId) {
+//     return new Promise(function (resolve, reject) {
+//         axios.get(`https://api.results.zone/sputnik-liga-masterov-5-etap/races/${raceId}/results.json`)
+//             .then((res) => {
+//                 resolve(res.data.items)
+//             }).catch(err => console.log(err))
+//     })
+// }
+
+// function findRacer(racers, id) {
+//     return new Promise(function (resolve, reject) {
+//         racers.forEach((racer) => {
+//             if (racer.bib === id) {
+//                 resolve(racer)
+//             } else {
+//             }
+//         })
+//     })
+// }
+
+// export function getTwoRacers(raceId, id1, id2) {
+//     return new Promise(function (resolve, reject) {
+//         getRacers(raceId).then((data) => {
+//             let racers = []
+//             findRacer(data, id1).then((data) => racers.push(data))
+//             findRacer(data, id2).then((data) => {
+//                 racers.push(data)
+//                 resolve(racers)
+//             })
+//         }).catch(err => (err))
+//     })
+// }
+
+export function getDataForDiffOfTwo() {
+
     return new Promise(function (resolve, reject) {
-        axios.get(`https://api.results.zone/sputnik-liga-masterov-5-etap/races/${raceId}/results.json`)
-            .then((res) => {
-                resolve(res.data.items)
-            }).catch(err => console.log(err))
-    })
-}
 
-function findRacer(racers, id) {
-    return new Promise(function (resolve, reject) {
-        racers.forEach((racer) => {
-            if (racer.bib === id) {
-                resolve(racer)
-            } else {
-            }
-        })
-    })
-}
+            axios.get('http://192.168.2.100/results', {
+                auth: {
+                    username: 'velo',
+                    password: 'c567hFDK587jk'
+                }
+            }).then((data) => {
 
-export function getTwoRacers(raceId, id1, id2) {
-    return new Promise(function (resolve, reject) {
-        getRacers(raceId).then((data) => {
-            let racers = []
-            findRacer(data, id1).then((data) => racers.push(data))
-            findRacer(data, id2).then((data) => {
-                racers.push(data)
-                resolve(racers)
-            })
-        }).catch(err => (err))
-    })
-}
+                dataFromJson = data.data
 
-export function getDataForDiffOfTwo(raceId, id1, id2) {
-
-    return new Promise(function (resolve, reject) {
-
-        setInterval(() => {
-            fs.readFile('jsonData.json', 'utf8', function (err, data) {
-                if (err) throw err;
-                try {
-                    dataFromJson = JSON.parse(data)
-                } catch (e) {}
                 updateData()
                 dataForDiffOfTwo.timer = dataFromJson.gun
                 dataForDiffOfTwo.lastSplit1 = handleDataFromJson(dataFromJson.start_position_1_split_name)
                 dataForDiffOfTwo.lastSplit2 = handleDataFromJson(dataFromJson.start_position_2_split_name)
                 dataForDiffOfTwo.lastResult1 = secToMin(dataFromJson.start_position_1_split_time)
                 dataForDiffOfTwo.lastResult2 = secToMin(dataFromJson.start_position_2_split_time)
-            });
-        }, 100)
+            }).catch(err => {})
 
-
-        getTwoRacers(raceId, id1, id2).then(racers => {
-
-                // @ts-ignore
-                dataForDiffOfTwo.memberList = racers
-                //dataForDiffOfTwo.lastResult1 = racers[0].result.split(':')[1] + `:` + racers[0].result.split(':')[2]
-                //dataForDiffOfTwo.lastResult2 = racers[1].result.split(':')[1] + `:` + racers[1].result.split(':')[2]
-                //dataForDiffOfTwo.diff1 = getResult(racers[1].result_time, racers[0].result_time)
-                //dataForDiffOfTwo.diff2 = getResult(racers[0].result_time, racers[1].result_time)
-
-
-                // let lastCheckpoint = ''
-                //
-                // let lastCheckpointId1 = this.data.memberList[0].splits.length
-                // let lastCheckpointId2 = this.data.memberList[1].splits.length
-                //
-                // if (lastCheckpointId1 > lastCheckpointId2) {
-                //     lastCheckpoint = data.memberList[0].splits[lastCheckpointId1 - 1]
-                // } else if (lastCheckpointId2 > lastCheckpointId1) {
-                //     lastCheckpoint = data.memberList[1].splits[lastCheckpointId1 - 1]
-                // } else {
-                //     lastCheckpoint = data.memberList[0].splits[lastCheckpointId1 - 1]
-                // }
-            }
-        )
+        // getTwoRacers(raceId, id1, id2).then(racers => {
+        //
+        //         @ts-ignore
+        //         dataForDiffOfTwo.memberList = racers
+        //         dataForDiffOfTwo.lastResult1 = racers[0].result.split(':')[1] + `:` + racers[0].result.split(':')[2]
+        //         dataForDiffOfTwo.lastResult2 = racers[1].result.split(':')[1] + `:` + racers[1].result.split(':')[2]
+        //         dataForDiffOfTwo.diff1 = getResult(racers[1].result_time, racers[0].result_time)
+        //         dataForDiffOfTwo.diff2 = getResult(racers[0].result_time, racers[1].result_time)
+        //
+        //
+        //         let lastCheckpoint = ''
+        //
+        //         let lastCheckpointId1 = this.data.memberList[0].splits.length
+        //         let lastCheckpointId2 = this.data.memberList[1].splits.length
+        //
+        //         if (lastCheckpointId1 > lastCheckpointId2) {
+        //             lastCheckpoint = data.memberList[0].splits[lastCheckpointId1 - 1]
+        //         } else if (lastCheckpointId2 > lastCheckpointId1) {
+        //             lastCheckpoint = data.memberList[1].splits[lastCheckpointId1 - 1]
+        //         } else {
+        //             lastCheckpoint = data.memberList[0].splits[lastCheckpointId1 - 1]
+        //         }
+        //     }
     })
 }
 
@@ -100,27 +101,36 @@ function updateData() {
         }
 
         if (dataForDiffOfTwo.lastSplit1 - dataForDiffOfTwo.lastSplit2 === 1) {
+            dataForDiffOfTwo.diff1 = ''
             dataForDiffOfTwo.diff2 = 'Timer'
         }
         if (dataForDiffOfTwo.lastSplit2 - dataForDiffOfTwo.lastSplit1 === 1) {
             dataForDiffOfTwo.diff1 = 'Timer'
+            dataForDiffOfTwo.diff2 = ''
         }
 
 
         if (dataForDiffOfTwo.lastSplit1 - dataForDiffOfTwo.lastSplit2 === 2 || dataForDiffOfTwo.lastSplit1 - dataForDiffOfTwo.lastSplit2 === 3) {
             dataForDiffOfTwo.diff2 = '+1 круг'
+            dataForDiffOfTwo.diff1 = ''
         }
         if (dataForDiffOfTwo.lastSplit2 - dataForDiffOfTwo.lastSplit1 === 2 || dataForDiffOfTwo.lastSplit2 - dataForDiffOfTwo.lastSplit1 === 3) {
             dataForDiffOfTwo.diff1 = '+1 круг'
+            dataForDiffOfTwo.diff2 = ''
         }
 
         if (dataForDiffOfTwo.lastSplit1 - dataForDiffOfTwo.lastSplit2 === 4 || dataForDiffOfTwo.lastSplit1 - dataForDiffOfTwo.lastSplit2 === 5) {
+            dataForDiffOfTwo.diff1 = ''
             dataForDiffOfTwo.diff2 = '+2 круга'
         }
         if (dataForDiffOfTwo.lastSplit2 - dataForDiffOfTwo.lastSplit1 === 4 || dataForDiffOfTwo.lastSplit2 - dataForDiffOfTwo.lastSplit1 === 5) {
             dataForDiffOfTwo.diff1 = '+2 круга'
+            dataForDiffOfTwo.diff2 = ''
         }
-    }, 100)
+
+        dataForDiffOfTwo.name1 = getDataFromCell(data, 10, 14)
+        dataForDiffOfTwo.name2 = getDataFromCell(data, 13, 14)
+    }, 300)
 }
 
 function handleDataFromJson(splitName) {

@@ -74,7 +74,10 @@ export function finalProtocolGetData() {
 
         for (let i = 0; i < 6; i++) { // получить названия столбцов
             try {
-                dataForFinalProtocol.columns[i].name = getDataFromCell(data,31+i, 12)
+                dataForFinalProtocol.columns[i].name = getDataFromCell(data, 31 + i, 12)
+                if (dataForFinalProtocol.columns[i].name === 'ФИО' || dataForFinalProtocol.columns[i].name === 'ФИ') {
+                    dataForFinalProtocol.columns[i].style = 'text-align: left'
+                } else { dataForFinalProtocol.columns[i].style = '' }
             } catch {
             }
         }
